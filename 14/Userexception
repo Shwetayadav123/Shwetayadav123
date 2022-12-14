@@ -1,0 +1,163 @@
+package shweta;
+
+public class user_exp extends Exception{
+
+	public user_exp(String MSG) {
+		super(MSG);
+	}
+
+}
+--------
+package shweta;
+import java.util.*;
+public class evenodd extends Arm {
+	int n;
+    static Scanner sc=new Scanner(System.in); 
+//	public static void main(String[] args) {
+//	try {
+//		evenodd();
+//	}
+//	catch(user_exp e){
+//		System.out.println("the error is"+e.getMessage());
+//	}
+
+//	}
+	public static void evenoddd() throws user_exp {
+		System.out.println("Enter your num");
+		int n=sc.nextInt();
+		if(n%2==0) {
+			throw new user_exp("its a even number");
+			}
+		else {
+			throw new user_exp("its a odd number ");
+		}
+		
+	}
+		
+			
+
+}
+-------
+
+package shweta;
+
+import java.util.Scanner;
+
+public class prime1  extends evenodd{
+ static Scanner sc=new Scanner(System.in);
+static int num ,i;
+//
+//	public static void main(String[] args) {
+//		// TODO Auto-generated method stub
+//		try {
+//			prime();
+//		}
+//		catch(user_exp ex){
+//			System.out.println(ex.getMessage()    );
+//		}
+
+	//}
+	public static void prime() throws user_exp {
+		
+	System.out.println("Enter your number");
+	 num=sc.nextInt();
+	
+	for(int i=2;i<=7;i++) {	
+		if(num==i) {
+			throw new user_exp("its a prime number ");
+		}
+		else if(num%i==0) {
+			throw new user_exp("it is not a prime number ");
+		}		
+		else {
+			throw new user_exp("its a prime number  ");
+		}
+		 
+	 }
+	}
+	
+}
+---------
+package shweta;
+
+import java.util.Scanner;
+
+public class Arm {
+static Scanner sc=new Scanner(System.in);
+static int num,i,sum =0 ,temp,r;
+
+//	public static void main(String[] args) {
+//try {
+//	Arm();
+//}
+//	catch(user_exp ex) {
+//		System.out.println(ex.getMessage());
+//	}
+//	}
+    public static void Arm() throws user_exp {
+	System.out.println("Enter 3 digit num");
+	num =sc.nextInt();
+	while(num>0) {
+		temp=num;
+		r=num%10;
+		sum=sum+r*r*r;
+		num=num/10;
+	}
+	if(sum==temp){
+		throw new user_exp("it is a armstrong number");
+		
+	}
+	else {
+		throw new user_exp("it is not an amstrong number");
+	}
+	
+	
+	
+
+	
+	
+	
+}
+}
+----------
+
+package shweta;
+
+import java.util.Scanner;
+
+public class Call extends prime1{
+static char ch;
+ static Scanner sc=new Scanner (System.in);
+	public static void main(String[] args) {
+try {
+	callfunction();
+}
+catch(user_exp ex){
+	System.out.println(ex.getMessage());
+	
+}
+	}
+public static void callfunction() throws user_exp {
+	System.out.println("Enter your choice \n press [e] char for even odd \n press [p] for prime number \n press [a]  for armstrong number");
+	System.out.println("press [x] to repeat");
+do{
+	ch=sc.next().charAt(0);
+	switch(ch) {
+	case 'e':
+		evenoddd();
+		break;
+	
+	case 'p' :
+		prime();
+		break;
+	case 'a':
+		Arm();
+		break;
+	}
+	
+}while(ch=='x');
+
+}
+}
+
+
